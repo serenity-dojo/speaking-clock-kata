@@ -1,4 +1,4 @@
-package starter;
+package talkingclock;
 
 import io.cucumber.junit.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
