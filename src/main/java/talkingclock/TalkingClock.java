@@ -30,10 +30,24 @@ public class TalkingClock {
     }
 
     public String sayTheTimeFor(LocalTime currentTime) {
-        if (currentTime.getHour() == 0 || currentTime.getHour() == 12) {
-            return TIMES_OF_DAY.get(currentTime);
+        if (currentTime.getMinute() == 0) {
+            if (currentTime.getHour() == 0 || currentTime.getHour() == 12) {
+                return TIMES_OF_DAY.get(currentTime);
+            } else if (currentTime.getHour() > 12) {
+                return HOUR_OF_DAY.get(currentTime.getHour() - 12) + " o'clock";
+            } else {
+                return HOUR_OF_DAY.get(currentTime.getHour()) + " o'clock";
+            }
         } else {
-            return HOUR_OF_DAY.get(currentTime.getHour()) + " o'clock";
+            if (currentTime.getHour() > 12) {
+                return HOUR_OF_DAY.get(currentTime.getHour() - 12) + " " + spokenMinutes(currentTime.getMinute());
+            } else {
+                return HOUR_OF_DAY.get(currentTime.getHour()) + " " + spokenMinutes(currentTime.getMinute());
+            }
         }
+    }
+
+    public String spokenMinutes(int minutes) {
+        return SpokenTime.minutesAsTextFor(minutes);
     }
 }

@@ -29,16 +29,19 @@ Feature: Display the time
     Examples: Should display hours and minutes when minutes are not zero
       | time     | spoken-time      |
       | 01:20:00 | one twenty       |
-      | 01:23:00 | one twenty-three |
-      | 04:29:00 | half past four   |
+      | 01:23:00 | one twenty three |
+      | 01:34:00 | one thirty four  |
+      | 01:45:00 | one forty five   |
+      | 01:57:00 | one fifty seven  |
     Examples: Should display half past within 3 minutes of 30 minutes past
       | time     | spoken-time      |
-      | 05:26:00 | five twenty-six  |
+      | 04:29:00 | half past four   |
+      | 05:26:00 | five twenty six  |
       | 08:27:00 | half past eight  |
       | 08:33:00 | half past eight  |
-      | 01:23:00 | one twenty-three |
+      | 01:23:00 | one twenty three |
     Examples: Should round seconds to minutes
       | time     | spoken-time     |
       | 01:20:01 | one twenty      |
-      | 04:20:30 | four twenty-one |
-      | 06:20:59 | six twenty-one  |
+      | 04:20:30 | four twenty one |
+      | 06:20:59 | six twenty one  |
